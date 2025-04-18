@@ -43,6 +43,13 @@ public abstract class SortingAlgorithm {
      */
     public abstract void sort();
 
+
+    /** 
+     * Abstract method to be implemented by subclasses to return the name of the sorting
+     * algorithm.
+     */
+    public abstract String getName();
+
 /**
      * Returns the number of comparisons made during the sort.
      * 
