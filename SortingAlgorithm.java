@@ -86,4 +86,19 @@ public abstract class SortingAlgorithm {
     public long getTime() {
         return time;
     }
+
+    /**
+     * static method to check if a given array is sorted in non-decreasing order.
+     * 
+     * @param array the array to check
+     * @return true if the array is sorted, false otherwise
+     */
+    public static boolean isSorted(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < array[i - 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

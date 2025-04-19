@@ -93,4 +93,28 @@ public class MergeSort extends SortingAlgorithm {
     public String getName() {
         return "merge";
     }
+
+    /**
+     * Main method to test the MergeSort implementation.
+     * 
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        MergeSort mergeSort = new MergeSort();
+        for (int size = 10; size <= 10240; size *= 2) {
+            int[] array = new int[size];
+            IntArrayGenerator.randomArray(array, 1, 100);
+            mergeSort.setArray(array);
+            mergeSort.sort();
+
+            // Validate that the array is sorted using the base class method
+            if (!SortingAlgorithm.isSorted(array)) {
+                System.out.printf("Error: Array is not sorted correctly by %s\n", mergeSort.getName());
+                return;
+            }
+
+            System.out.printf("MergeSort - Size: %d, Time: %d ns, Comparisons: %d, Swaps: %d\n",
+                    size, mergeSort.getTime(), mergeSort.getComparisons(), mergeSort.getSwaps());
+        }
+    }
 }

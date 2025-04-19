@@ -107,4 +107,23 @@ public class QuickSort extends SortingAlgorithm {
     public String getName() {
         return "quick";
     }
+
+    public static void main(String[] args) {
+        QuickSort quickSort = new QuickSort();
+        for (int size = 10; size <= 10240; size *= 2) {
+            int[] array = new int[size];
+            IntArrayGenerator.randomArray(array, 1, 100);
+            quickSort.setArray(array);
+            quickSort.sort();
+
+            // Validate that the array is sorted using the base class method
+            if (!SortingAlgorithm.isSorted(array)) {
+                System.out.printf("Error: Array is not sorted correctly by %s\n", quickSort.getName());
+                return;
+            }
+
+            System.out.printf("QuickSort - Size: %d, Time: %d ns, Comparisons: %d, Swaps: %d\n",
+                    size, quickSort.getTime(), quickSort.getComparisons(), quickSort.getSwaps());
+        }
+    }
 }

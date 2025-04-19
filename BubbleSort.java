@@ -50,4 +50,28 @@ public class BubbleSort extends SortingAlgorithm {
     public String getName() {
         return "bubble";
     }
+
+    /**
+     * Main method to test the BubbleSort implementation.
+     * 
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        BubbleSort bubbleSort = new BubbleSort();
+        for (int size = 10; size <= 10240; size *= 2) {
+            int[] array = new int[size];
+            IntArrayGenerator.randomArray(array, 1, 100);
+            bubbleSort.setArray(array);
+            bubbleSort.sort();
+
+            // Validate that the array is sorted
+            if (!SortingAlgorithm.isSorted(array)) {
+                System.out.printf("Error: Array is not sorted correctly by %s\n", bubbleSort.getName());
+                return;
+            }
+
+            System.out.printf("BubbleSort - Size: %d, Time: %d ns, Comparisons: %d, Swaps: %d\n",
+                    size, bubbleSort.getTime(), bubbleSort.getComparisons(), bubbleSort.getSwaps());
+        }
+    }
 }

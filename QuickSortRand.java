@@ -33,4 +33,28 @@ public class QuickSortRand extends QuickSort {
     public String getName() {
         return "quick-rand";
     }
+
+    /**
+     * Main method to test the QuickSortRand implementation.
+     * 
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        QuickSortRand quickSortRand = new QuickSortRand();
+        for (int size = 10; size <= 10240; size *= 2) {
+            int[] array = new int[size];
+            IntArrayGenerator.randomArray(array, 1, 100);
+            quickSortRand.setArray(array);
+            quickSortRand.sort();
+
+            // Validate that the array is sorted using the base class method
+            if (!SortingAlgorithm.isSorted(array)) {
+                System.out.printf("Error: Array is not sorted correctly by %s\n", quickSortRand.getName());
+                return;
+            }
+
+            System.out.printf("QuickSortRand - Size: %d, Time: %d ns, Comparisons: %d, Swaps: %d\n",
+                    size, quickSortRand.getTime(), quickSortRand.getComparisons(), quickSortRand.getSwaps());
+        }
+    }
 }

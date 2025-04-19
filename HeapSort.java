@@ -104,4 +104,28 @@ public class HeapSort extends SortingAlgorithm {
     public String getName() {
         return "heap";
     }
+
+    /**
+     * Main method to test the HeapSort implementation.
+     * 
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        HeapSort heapSort = new HeapSort();
+        for (int size = 10; size <= 10240; size *= 2) {
+            int[] array = new int[size];
+            IntArrayGenerator.randomArray(array, 1, 100);
+            heapSort.setArray(array);
+            heapSort.sort();
+
+            // Validate that the array is sorted using the base class method
+            if (!SortingAlgorithm.isSorted(array)) {
+                System.out.printf("Error: Array is not sorted correctly by %s\n", heapSort.getName());
+                return;
+            }
+
+            System.out.printf("HeapSort - Size: %d, Time: %d ns, Comparisons: %d, Swaps: %d\n",
+                    size, heapSort.getTime(), heapSort.getComparisons(), heapSort.getSwaps());
+        }
+    }
 }

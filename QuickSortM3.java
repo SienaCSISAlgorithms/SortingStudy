@@ -9,7 +9,7 @@
  * @see SortingAlgorithm
  */
 
- import java.util.Arrays;
+import java.util.Arrays;
 
 public class QuickSortM3 extends QuickSort {
 
@@ -19,7 +19,6 @@ public class QuickSortM3 extends QuickSort {
 
     @Override
     protected int partition(int[] array, int low, int high) {
-        // Median-of-three pivot selection
         int mid = low + (high - low) / 2;
         int[] candidates = { array[low], array[mid], array[high] };
         Arrays.sort(candidates);
@@ -36,5 +35,29 @@ public class QuickSortM3 extends QuickSort {
     @Override
     public String getName() {
         return "quick-m3";
+    }
+
+    /**
+     * Main method to test the QuickSortM3 implementation.
+     * 
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        QuickSortM3 quickSortM3 = new QuickSortM3();
+        for (int size = 10; size <= 10240; size *= 2) {
+            int[] array = new int[size];
+            IntArrayGenerator.randomArray(array, 1, 100);
+            quickSortM3.setArray(array);
+            quickSortM3.sort();
+
+            // Validate that the array is sorted using the base class method
+            if (!SortingAlgorithm.isSorted(array)) {
+                System.out.printf("Error: Array is not sorted correctly by %s\n", quickSortM3.getName());
+                return;
+            }
+
+            System.out.printf("QuickSortM3 - Size: %d, Time: %d ns, Comparisons: %d, Swaps: %d\n",
+                    size, quickSortM3.getTime(), quickSortM3.getComparisons(), quickSortM3.getSwaps());
+        }
     }
 }

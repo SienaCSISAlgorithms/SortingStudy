@@ -55,4 +55,28 @@ public class InsertionSort extends SortingAlgorithm {
     public String getName() {
         return "insertion";
     }
+
+    /**
+     * Main method to test the InsertionSort implementation.
+     * 
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        InsertionSort insertionSort = new InsertionSort();
+        for (int size = 10; size <= 10240; size *= 2) {
+            int[] array = new int[size];
+            IntArrayGenerator.randomArray(array, 1, 100);
+            insertionSort.setArray(array);
+            insertionSort.sort();
+
+            // Validate that the array is sorted using the base class method
+            if (!SortingAlgorithm.isSorted(array)) {
+                System.out.printf("Error: Array is not sorted correctly by %s\n", insertionSort.getName());
+                return;
+            }
+
+            System.out.printf("InsertionSort - Size: %d, Time: %d ns, Comparisons: %d, Swaps: %d\n",
+                    size, insertionSort.getTime(), insertionSort.getComparisons(), insertionSort.getSwaps());
+        }
+    }
 }

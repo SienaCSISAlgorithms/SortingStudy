@@ -53,4 +53,28 @@ public class SelectionSort extends SortingAlgorithm {
     public String getName() {
         return "selection";
     }
+
+    /**
+     * Main method to test the SelectionSort implementation.
+     * 
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        SelectionSort selectionSort = new SelectionSort();
+        for (int size = 10; size <= 10240; size *= 2) {
+            int[] array = new int[size];
+            IntArrayGenerator.randomArray(array, 1, 100);
+            selectionSort.setArray(array);
+            selectionSort.sort();
+
+            // Validate that the array is sorted using the base class method
+            if (!SortingAlgorithm.isSorted(array)) {
+                System.out.printf("Error: Array is not sorted correctly by %s\n", selectionSort.getName());
+                return;
+            }
+
+            System.out.printf("SelectionSort - Size: %d, Time: %d ns, Comparisons: %d, Swaps: %d\n",
+                    size, selectionSort.getTime(), selectionSort.getComparisons(), selectionSort.getSwaps());
+        }
+    }
 }
