@@ -3,18 +3,15 @@
  * abstract class. This class performs an iterative selection sort while counting
  * the number of comparisons and swaps.
  * 
- * @author Jim Teresco via Copilot
  * @version Spring 2025
  */
 public class SelectionSort extends SortingAlgorithm {
 
     /**
-     * Constructor for the SelectionSort class.
-     * 
-     * @param array the array to be sorted
+     * Default constructor for the SelectionSort class.
      */
-    public SelectionSort(int[] array) {
-        super(array);
+    public SelectionSort() {
+        super();
     }
 
     /**

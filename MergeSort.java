@@ -13,10 +13,9 @@ public class MergeSort extends SortingAlgorithm {
     /**
      * Constructor for the MergeSort class.
      * 
-     * @param array the array to be sorted
      */
-    public MergeSort(int[] array) {
-        super(array);
+    public MergeSort() {
+        super();
     }
 
     /**

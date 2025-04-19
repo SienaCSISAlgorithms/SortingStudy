@@ -16,10 +16,9 @@ public class QuickSort extends SortingAlgorithm {
     /**
      * Constructor for the QuickSort class.
      * 
-     * @param array the array to be sorted
      */
-    public QuickSort(int[] array) {
-        super(array);
+    public QuickSort() {
+        super();
     }
 
     /**

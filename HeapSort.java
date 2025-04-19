@@ -13,10 +13,9 @@ public class HeapSort extends SortingAlgorithm {
     /**
      * Constructor for the HeapSort class.
      * 
-     * @param array the array to be sorted
      */
-    public HeapSort(int[] array) {
-        super(array);
+    public HeapSort() {
+        super();
     }
 
     /**

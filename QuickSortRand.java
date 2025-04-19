@@ -16,8 +16,8 @@ public class QuickSortRand extends QuickSort {
 
     private static final Random random = new Random();
 
-    public QuickSortRand(int[] array) {
-        super(array);
+    public QuickSortRand() {
+        super();
     }
 
     @Override

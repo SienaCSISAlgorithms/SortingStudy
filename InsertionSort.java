@@ -11,10 +11,9 @@ public class InsertionSort extends SortingAlgorithm {
     /**
      * Constructor for the InsertionSort class.
      * 
-     * @param array the array to be sorted
      */
-    public InsertionSort(int[] array) {
-        super(array);
+    public InsertionSort() {
+        super();
     }
 
     /**

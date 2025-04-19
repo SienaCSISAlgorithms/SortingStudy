@@ -13,8 +13,8 @@ public class BubbleSort extends SortingAlgorithm {
      * 
      * @param array the array to be sorted
      */
-    public BubbleSort(int[] array) {
-        super(array);
+    public BubbleSort() {
+        super();
     }
 
     /**

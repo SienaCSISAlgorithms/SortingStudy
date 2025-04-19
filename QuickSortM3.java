@@ -13,8 +13,8 @@
 
 public class QuickSortM3 extends QuickSort {
 
-    public QuickSortM3(int[] array) {
-        super(array);
+    public QuickSortM3() {
+        super();
     }
 
     @Override

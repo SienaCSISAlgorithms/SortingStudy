@@ -26,18 +26,29 @@ public abstract class SortingAlgorithm {
     protected int size;
 
     /**
-     * Constructor for the sorting algorithm. Initializes the array and its size.
+     * Default constructor for the sorting algorithm. Initializes the array and its
+     * size.
+     */
+    public SortingAlgorithm() {
+        this.array = null;
+        this.size = 0;
+        this.comparisons = 0;
+        this.swaps = 0;
+    }
+
+    /**
+     * Set the array to be sorted and reset the size, comparisons, swaps, and time
      * 
      * @param array the array to be sorted
      */
-    public SortingAlgorithm(int[] array) {
+    public void setArray(int[] array) {
         this.array = array;
         this.size = array.length;
         this.comparisons = 0;
         this.swaps = 0;
-}
+    }
 
-/**
+   /**
      * Abstract method to be implemented by subclasses to perform the sorting
      * algorithm.
      */
