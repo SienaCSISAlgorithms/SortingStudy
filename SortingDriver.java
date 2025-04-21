@@ -100,8 +100,8 @@ public class SortingDriver {
         long averageComparisons = totalComparisons / trials;
         long averageSwaps = totalSwaps / trials;
 
-        // print the results on a single line
-        System.out.printf("%s %d %s %d %d %d %d\n", algorithm.getName(), size, inputType, trials, averageTime,
+        // print the results on a single line, comma-separated
+        System.out.printf("%s,%d,%s,%d,%d,%d,%d\n", algorithm.getName(), size, inputType, trials, averageTime,
                 averageComparisons, averageSwaps);
 
     }
